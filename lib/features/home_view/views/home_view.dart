@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/config/constants.dart';
+import 'package:movies_app/features/home_view/widgets/new_releases.dart';
+import 'package:movies_app/features/home_view/widgets/recomended_movies_list.dart';
 import '../widgets/suggested_movie.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,27 +8,15 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Column(
         children: [
-          const SuggestedMovie(),
-          const Spacer(flex: 1),
-          Container(
-            width: Constants.mediaQuery.width,
-            height: Constants.mediaQuery.height * 0.22,
-            decoration: const BoxDecoration(
-              color: Color(0XFF282A28),
-            ),
-          ),
-          const Spacer(flex: 1),
-          Container(
-            width: Constants.mediaQuery.width,
-            height: Constants.mediaQuery.height * 0.25,
-            decoration: const BoxDecoration(
-              color: Color(0XFF282A28),
-            ),
-          ),
-          const Spacer(flex: 1),
+          SuggestedMovie(),
+          Spacer(flex: 1),
+          NewReleases(),
+          Spacer(flex: 1),
+          RecomendedMoviesList(),
+          Spacer(flex: 1),
         ],
       ),
     );

@@ -10,7 +10,6 @@ class CoveredMovie extends StatelessWidget {
     return SizedBox(
       width: Constants.mediaQuery.width,
       height: Constants.mediaQuery.height * 0.30,
-      //decoration: const BoxDecoration(color: Colors.red),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

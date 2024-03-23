@@ -27,6 +27,7 @@ class AppThemeManager {
         color: Colors.white,
       ),
       titleMedium: TextStyle(
+        fontWeight: FontWeight.bold,
         fontSize: 15,
         color: Colors.white,
       ),

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/constants.dart';
 
-class SelectedBookmark extends StatelessWidget {
-  const SelectedBookmark({super.key});
+class FavoriteBookmark extends StatelessWidget {
+  const FavoriteBookmark({super.key});
 
   @override
   Widget build(BuildContext context) {

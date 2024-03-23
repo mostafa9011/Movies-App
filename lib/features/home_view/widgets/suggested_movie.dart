@@ -7,11 +7,14 @@ class SuggestedMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return Stack(
       alignment: Alignment.bottomLeft,
       children: [
-        CoveredMovie(),
-        PosterMovie(),
+        const CoveredMovie(),
+        Container(
+          margin: const EdgeInsets.only(left: 16),
+          child: const PosterMovie(),
+        ),
       ],
     );
   }
