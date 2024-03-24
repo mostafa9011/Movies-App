@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../core/config/constants.dart';
 
 class CoveredMovie extends StatelessWidget {
-  const CoveredMovie({super.key});
+  const CoveredMovie({super.key, required this.textPadding});
+  final double textPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class CoveredMovie extends StatelessWidget {
           ),
           Row(
             children: [
-              SizedBox(width: Constants.mediaQuery.width * 0.40),
+              SizedBox(width: textPadding),
               Expanded(
                 child: Text(
                   overflow: TextOverflow.ellipsis,
@@ -43,7 +44,7 @@ class CoveredMovie extends StatelessWidget {
           ),
           Row(
             children: [
-              SizedBox(width: Constants.mediaQuery.width * 0.40),
+              SizedBox(width: textPadding),
               Text(
                 '2019  PG-13  2h 7m',
                 style: Constants.theme.textTheme.bodyMedium,

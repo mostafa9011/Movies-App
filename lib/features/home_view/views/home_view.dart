@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
           Spacer(flex: 1),
           NewReleases(),
           Spacer(flex: 1),
-          RecomendedMoviesList(),
+          RecomendedMoviesList(title: 'Recomended'),
           Spacer(flex: 1),
         ],
       ),

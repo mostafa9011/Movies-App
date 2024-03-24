@@ -11,7 +11,7 @@ class NewReleases extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Constants.mediaQuery.width,
-      height: Constants.mediaQuery.height * 0.22,
+      height: Constants.mediaQuery.height * 0.24,
       decoration: const BoxDecoration(
         color: Color(0XFF282A28),
       ),
