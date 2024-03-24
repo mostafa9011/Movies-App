@@ -32,9 +32,12 @@ class CoveredMovie extends StatelessWidget {
           Row(
             children: [
               SizedBox(width: Constants.mediaQuery.width * 0.40),
-              Text(
-                'Dora and the lost city of gold',
-                style: Constants.theme.textTheme.titleMedium,
+              Expanded(
+                child: Text(
+                  overflow: TextOverflow.ellipsis,
+                  'Dora and the lost city of gold',
+                  style: Constants.theme.textTheme.titleMedium,
+                ),
               ),
             ],
           ),
