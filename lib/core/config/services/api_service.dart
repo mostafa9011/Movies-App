@@ -18,9 +18,10 @@ class ApiService {
         MovieModel movie = MovieModel.fromJson(element);
         moviesList.add(movie);
       }
-      log(moviesList[9].overview);
+      //log(moviesList[9].overview);
       return moviesList;
-    } catch (e) {
+    }
+     catch (e) {
       log(e.toString());
       return [];
     }

@@ -10,13 +10,13 @@ class UnSelectedBookmark extends StatelessWidget {
       children: [
         Icon(
           Icons.bookmark,
-          size: 40,
+          size: 30,
           color: Color(0xff514f4f),
         ),
         Icon(
           Icons.add,
           color: Colors.white,
-          size: 22,
+          size: 20,
         )
       ],
     );

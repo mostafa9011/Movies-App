@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/config/app_theme_manager.dart';
 import 'package:movies_app/core/config/views_route_name.dart';
+
+import '../../../core/cubits/movies_cubit/movies_cubit.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -17,6 +20,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(
       const Duration(seconds: 3),
       () {
+        BlocProvider.of<MoviesCubit>(context).getNewReleasesMovies();
         Navigator.pushReplacementNamed(
           context,
           ViewsRouteName.homeLayoutView,
