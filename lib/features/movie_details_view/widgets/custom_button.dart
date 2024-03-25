@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/constants.dart';
+import 'package:movies_app/core/config/models/movie_model.dart';
+import 'package:movies_app/core/config/services/api_service.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key});
@@ -14,7 +18,10 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
       ),
-      onPressed: () {},
+      onPressed: () async {
+        List<MovieModel>moviesList=await ApiService().getNewRealeases();
+        log(moviesList[1].title);
+      },
       child: Text(
         'Action',
         style: Constants.theme.textTheme.bodyMedium,

@@ -16,14 +16,14 @@ class CarouselSliderList extends StatelessWidget {
       SuggestedMovie(),
     ];
     return CarouselSlider.builder(
-      itemCount: suggestedMoviesList.length,
+      itemCount: suggestedMoviesList.length, 
       itemBuilder: (context, index, realIndex) {
         return suggestedMoviesList[index];
       },
       options: CarouselOptions(
         height: Constants.mediaQuery.height * 0.30,
-        padEnds: false,
-        autoPlay: true,
+        // padEnds: false,
+        autoPlay: true, 
       ),
     );
   }

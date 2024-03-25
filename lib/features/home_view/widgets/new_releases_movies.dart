@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/features/home_view/widgets/poster_movie.dart';
+import 'poster_movie.dart';
 
 class NewReleasesMovies extends StatelessWidget {
   const NewReleasesMovies({super.key});
