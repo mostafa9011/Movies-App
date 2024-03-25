@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/config/constants.dart';
@@ -7,20 +6,20 @@ import 'package:movies_app/core/cubits/new_releases_movies_cubit/new_releases_mo
 import 'package:movies_app/core/cubits/new_releases_movies_cubit/new_releases_movies_state.dart';
 import 'package:movies_app/features/home_view/widgets/poster_movie.dart';
 
-class NewReleasesMovies extends StatelessWidget {
-  const NewReleasesMovies({super.key});
+class NewReleasesMoviesBuilder extends StatelessWidget {
+  const NewReleasesMoviesBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NewReleasesMoviesCubit, NewReleasesMoviesStates>(
-      listener: (context, state) {
-        log(state.toString());
-      },
+    return BlocBuilder<NewReleasesMoviesCubit, NewReleasesMoviesStates>(
       builder: (context, state) {
         if (state is MoviesInitial) {
           return const Center(
-              child: CircularProgressIndicator(
-                  backgroundColor: Constants.goldenColor));
+            child: CircularProgressIndicator(
+              backgroundColor: Constants.goldenColor,
+              strokeWidth: 1,
+            ),
+          );
         } else if (state is SuccessMoviesState) {
           return NewReleasesLisView(
             moviesList: state.moviesList,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:movies_app/core/config/constants.dart';
-import 'package:movies_app/features/home_view/widgets/new_releases_movies.dart';
+import 'package:movies_app/features/home_view/widgets/new_releases_movies_builder.dart';
 
 class NewReleases extends StatelessWidget {
   const NewReleases({super.key});
@@ -28,7 +28,7 @@ class NewReleases extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 6),
-            const NewReleasesMovies(),
+            const NewReleasesMoviesBuilder(),
           ],
         ),
       ),
