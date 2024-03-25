@@ -4,7 +4,9 @@ import 'package:movies_app/core/config/app_theme_manager.dart';
 import 'package:movies_app/core/config/views_route_name.dart';
 import 'package:movies_app/core/config/routes.dart';
 import 'package:movies_app/core/cubits/home_layout_cubit/home_layout_cubit.dart';
-import 'package:movies_app/core/cubits/movies_cubit/movies_cubit.dart';
+import 'package:movies_app/core/cubits/new_releases_movies_cubit/new_releases_movies_cubit.dart';
+import 'package:movies_app/core/cubits/popular_movies_cubit/popular_movies_cubit.dart';
+import 'package:movies_app/core/cubits/recommended_movies_cubit/recommended_movies_cubit.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 void main() {
@@ -22,7 +24,13 @@ class MoviesApp extends StatelessWidget {
           create: (context) => HomeLayoutCubit(),
         ),
         BlocProvider(
-          create: (context) => MoviesCubit(),
+          create: (context) => NewReleasesMoviesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => RecomendedMoviesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => PopularMoviesCubit(),
         ),
       ],
       child: MaterialApp(

@@ -6,10 +6,10 @@ import 'package:movies_app/core/config/models/movie_model.dart';
 class ApiService {
   final dio = Dio();
 
-  Future<List<MovieModel>> getNewRealeases() async {
+  Future<List<MovieModel>> getMoviesService({required String url}) async {
     try {
       var response = await dio.get(
-        '${Constants.newReleasesUrl}&${Constants.apiKey}',
+        '$url&${Constants.apiKey}',
       );
       var json = response.data;
       List<dynamic> results = json['results'];
@@ -20,8 +20,7 @@ class ApiService {
       }
       //log(moviesList[9].overview);
       return moviesList;
-    }
-     catch (e) {
+    } catch (e) {
       log(e.toString());
       return [];
     }

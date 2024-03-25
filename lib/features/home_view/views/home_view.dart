@@ -1,26 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/cubits/popular_movies_cubit/popular_movies_cubit.dart';
+import 'package:movies_app/core/cubits/popular_movies_cubit/popular_movies_state.dart';
 import 'package:movies_app/features/home_view/widgets/carousel_slider_list.dart';
 import 'package:movies_app/features/home_view/widgets/new_releases.dart';
 import 'package:movies_app/features/home_view/widgets/recomended_movies_list.dart';
+
+import '../../../core/config/constants.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Column(
         children: [
           SizedBox(
-            // height: 200,
-            child: CarouselSliderList(),
+            child: BlocBuilder<PopularMoviesCubit, PopularMoviesStates>(
+              builder: (context, state) {
+                if (state is InitialPopular) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Constants.goldenColor,
+                    ),
+                  );
+                } else if (state is SuccessPopularState) {
+                  return CarouselSliderList(
+                    moviesList: state.moviesList,
+                  );
+                } else {
+                  return const Text('there was an error');
+                }
+              },
+            ),
           ),
-          Spacer(flex: 1),
-          NewReleases(),
-          Spacer(flex: 1),
-          RecomendedMoviesList(title: 'Recomended'),
-          Spacer(flex: 1),
+          const Spacer(flex: 1),
+          const NewReleases(),
+          const Spacer(flex: 1),
+          const RecomendedMoviesList(title: 'Recomended'),
+          const Spacer(flex: 1),
         ],
       ),
     );

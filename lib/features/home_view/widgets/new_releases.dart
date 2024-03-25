@@ -28,8 +28,7 @@ class NewReleases extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 6),
-            const Expanded(child: NewReleasesMovies()),  
-
+            const NewReleasesMovies(),
           ],
         ),
       ),

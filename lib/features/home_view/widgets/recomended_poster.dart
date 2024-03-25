@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/config/models/movie_model.dart';
 
 import '../../../core/config/constants.dart';
 import 'poster_movie.dart';
@@ -6,7 +7,9 @@ import 'poster_movie.dart';
 class RecomendedPoster extends StatelessWidget {
   const RecomendedPoster({
     super.key,
+    required this.movie,
   });
+  final MovieModel movie;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,9 @@ class RecomendedPoster extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Expanded(child: PosterMovie()),
+           Expanded(
+            child: PosterMovie(movieImage: movie.posterImage,),
+          ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -26,19 +31,19 @@ class RecomendedPoster extends StatelessWidget {
                 color: Constants.goldenColor,
               ),
               Text(
-                '1.7',
+                '${movie.voteAverage}',
                 style: Constants.theme.textTheme.bodySmall,
               ),
             ],
           ),
           Text(
-            'Deadpool 2',
+            movie.title,
             style: Constants.theme.textTheme.bodySmall!.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
-            '2018  R  1h 59m',
+            movie.releaseDate,
             style: Constants.theme.textTheme.bodySmall,
           ),
         ],

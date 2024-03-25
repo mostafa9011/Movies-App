@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:movies_app/core/config/models/movie_model.dart';
 import '../../../core/config/constants.dart';
 
 class CoveredMovie extends StatelessWidget {
-  const CoveredMovie({super.key, required this.textPadding});
+  const CoveredMovie({super.key, required this.textPadding, this.movie});
   final double textPadding;
+  final MovieModel? movie;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +18,15 @@ class CoveredMovie extends StatelessWidget {
           Container(
             width: Constants.mediaQuery.width,
             height: Constants.mediaQuery.height * 0.22,
-            decoration: const BoxDecoration(
-              color: Colors.green,
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/Image1.png'),
+                image: movie == null
+                    ? const NetworkImage(
+                        'https://images-cdn.ubuy.co.in/6352289f38bb253c44612d53-interstellar-movie-poster-24-x-36-inches.jpg',
+                      )
+                    : NetworkImage(
+                        movie!.backdropImage,
+                      ),
                 fit: BoxFit.fitWidth,
               ),
             ),
@@ -36,7 +42,9 @@ class CoveredMovie extends StatelessWidget {
               Expanded(
                 child: Text(
                   overflow: TextOverflow.ellipsis,
-                  'Dora and the lost city of gold',
+                  movie == null
+                      ? 'Dora and the lost city of gold'
+                      : movie!.overview,
                   style: Constants.theme.textTheme.titleMedium,
                 ),
               ),
@@ -46,7 +54,7 @@ class CoveredMovie extends StatelessWidget {
             children: [
               SizedBox(width: textPadding),
               Text(
-                '2019  PG-13  2h 7m',
+                movie == null ? '9 / 11 / 2003' : movie!.releaseDate,
                 style: Constants.theme.textTheme.bodyMedium,
               ),
             ],
