@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/features/home_view/widgets/recomended_moveis_builder.dart';
+import 'package:movies_app/features/home_view/widgets/similar_movies_builder.dart';
 import '../../../core/config/constants.dart';
 
 class RecomendedMoviesList extends StatelessWidget {
-  const RecomendedMoviesList({super.key, required this.title});
+  const RecomendedMoviesList({
+    super.key,
+    required this.title,
+    required this.isSimilar,
+  });
   final String title;
+  final bool isSimilar;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +28,9 @@ class RecomendedMoviesList extends StatelessWidget {
             title,
             style: Constants.theme.textTheme.titleMedium,
           ),
-          const RecomendedMoviesBuilder()
+          isSimilar
+              ? const SimilarMoviesBuilder()
+              : const RecomendedMoviesBuilder(),
         ],
       ),
     );

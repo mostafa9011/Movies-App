@@ -41,7 +41,10 @@ class MovieDetailsView extends StatelessWidget {
                     movie: state.movie,
                   ),
                   const Spacer(flex: 1),
-                  const RecomendedMoviesList(title: 'More Like This'),
+                  const RecomendedMoviesList(
+                    title: 'More Like This',
+                    isSimilar: true,
+                  ),
                   const Spacer(flex: 1),
                 ],
               );

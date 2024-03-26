@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/config/constants.dart';
 import 'package:movies_app/core/config/views_route_name.dart';
 import 'package:movies_app/core/cubits/details_movies_cubit/details_movie_cubit.dart';
+import 'package:movies_app/core/cubits/similar_movies_cubit/similar_movies_cubit.dart';
 import 'package:movies_app/core/widgets/unfavorite_bookmark.dart';
 
 class PosterMovie extends StatelessWidget {
@@ -23,6 +24,9 @@ class PosterMovie extends StatelessWidget {
           BlocProvider.of<DetailsMovieCubit>(context).getDetailsMovie(
             id: moviesId!,
           );
+          BlocProvider.of<SimilarMoviesCubit>(context).getSimilarMovies(
+            id: moviesId!,
+          );
         }
       },
       child: Container(
@@ -31,7 +35,7 @@ class PosterMovie extends StatelessWidget {
         height: 166,
         width: Constants.mediaQuery.width * 0.30,
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: Colors.grey,
           image: DecorationImage(
             image: movieImage == null
                 ? const NetworkImage(

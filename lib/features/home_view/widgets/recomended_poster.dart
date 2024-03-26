@@ -39,10 +39,14 @@ class RecomendedPoster extends StatelessWidget {
               ),
             ],
           ),
-          Text(
-            movie.title,
-            style: Constants.theme.textTheme.bodySmall!.copyWith(
-              fontWeight: FontWeight.bold,
+          SizedBox(
+            width: Constants.mediaQuery.width * 0.3,
+            child: Text(
+              movie.title,
+              style: Constants.theme.textTheme.bodySmall!.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           Text(
