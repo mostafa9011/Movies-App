@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/constants.dart';
+import 'package:movies_app/core/config/views_route_name.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,10 @@ class CustomAppBar extends StatelessWidget {
         children: [
           const SizedBox(width: 10),
           IconButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.pushReplacementNamed(
+              context,
+              ViewsRouteName.homeLayoutView,
+            ),
             icon: const Icon(
               Icons.arrow_back,
               color: Colors.white,
@@ -21,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
           ),
           const SizedBox(width: 25),
           Text(
-            'Dora and the lost city of gold',
+            title,
             style: Constants.theme.textTheme.bodyLarge,
           ),
         ],

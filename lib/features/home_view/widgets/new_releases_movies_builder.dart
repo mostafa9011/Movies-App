@@ -51,6 +51,7 @@ class NewReleasesLisView extends StatelessWidget {
             margin: const EdgeInsets.only(right: 10),
             child: PosterMovie(
               movieImage: moviesList[index].posterImage,
+              moviesId: moviesList[index].id,
             ),
           );
         },

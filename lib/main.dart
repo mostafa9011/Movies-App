@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/config/app_theme_manager.dart';
 import 'package:movies_app/core/config/views_route_name.dart';
 import 'package:movies_app/core/config/routes.dart';
+import 'package:movies_app/core/cubits/details_movies_cubit/details_movie_cubit.dart';
 import 'package:movies_app/core/cubits/home_layout_cubit/home_layout_cubit.dart';
 import 'package:movies_app/core/cubits/new_releases_movies_cubit/new_releases_movies_cubit.dart';
 import 'package:movies_app/core/cubits/popular_movies_cubit/popular_movies_cubit.dart';
@@ -31,6 +32,9 @@ class MoviesApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => PopularMoviesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => DetailsMovieCubit(),
         ),
       ],
       child: MaterialApp(

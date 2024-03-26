@@ -21,6 +21,7 @@ class SuggestedMovie extends StatelessWidget {
           margin: const EdgeInsets.only(left: 16),
           child: PosterMovie(
             movieImage: movie.posterImage,
+            moviesId: movie.id,
           ),
         ),
       ],

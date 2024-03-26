@@ -25,4 +25,23 @@ class ApiService {
       return [];
     }
   }
+
+  Future<MovieModel> getDetailsMoviesService({required int id}) async {
+    var response = await dio.get(
+      'https://api.themoviedb.org/3/movie/$id?append_to_response=mos&language=en-US&${Constants.apiKey}',
+    );
+    var json = response.data;
+    MovieModel movie = MovieModel.fromJson(json);
+    List<dynamic> genres = json['genres'];
+    List<String> genresList = [];
+    for (var element in genres) {
+      genresList.add(
+        element['name'],
+      );
+    }
+    movie.genresList = genresList;
+    log(movie.genresList![0]);
+    //log(moviesList[9].overview);
+    return movie;
+  }
 }

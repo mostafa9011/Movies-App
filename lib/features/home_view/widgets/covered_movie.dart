@@ -44,7 +44,7 @@ class CoveredMovie extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   movie == null
                       ? 'Dora and the lost city of gold'
-                      : movie!.overview,
+                      : movie!.title,
                   style: Constants.theme.textTheme.titleMedium,
                 ),
               ),

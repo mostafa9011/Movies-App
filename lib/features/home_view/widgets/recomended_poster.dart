@@ -19,8 +19,11 @@ class RecomendedPoster extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Expanded(
-            child: PosterMovie(movieImage: movie.posterImage,),
+          Expanded(
+            child: PosterMovie(
+              movieImage: movie.posterImage,
+              moviesId: movie.id,
+            ),
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
