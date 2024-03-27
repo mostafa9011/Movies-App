@@ -13,39 +13,69 @@ class PosterMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        if (moviesId != null) {
-          Navigator.pushNamed(
-            context,
-            ViewsRouteName.detailsView,
-            arguments: moviesId,
-          );
-          BlocProvider.of<DetailsMovieCubit>(context).getDetailsMovie(
-            id: moviesId!,
-          );
-          BlocProvider.of<SimilarMoviesCubit>(context).getSimilarMovies(
-            id: moviesId!,
-          );
-        }
-      },
-      child: Container(
-        padding: EdgeInsets.zero,
-        alignment: Alignment.topLeft,
-        height: 166,
-        width: Constants.mediaQuery.width * 0.30,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          image: DecorationImage(
-            image: movieImage == null
-                ? const NetworkImage(
-                    'https://images-cdn.ubuy.co.in/6352289f38bb253c44612d53-interstellar-movie-poster-24-x-36-inches.jpg',
-                  )
-                : NetworkImage(movieImage!),
-            fit: BoxFit.fill,
+    return Container(
+      padding: EdgeInsets.zero,
+      alignment: Alignment.topLeft,
+      height: 166,
+      width: Constants.mediaQuery.width * 0.30,
+      color: Colors.grey,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          GestureDetector(
+            onTap: () {
+              if (moviesId != null) {
+                Navigator.pushNamed(
+                  context,
+                  ViewsRouteName.detailsView,
+                  arguments: moviesId,
+                );
+                BlocProvider.of<DetailsMovieCubit>(context).getDetailsMovie(
+                  id: moviesId!,
+                );
+                BlocProvider.of<SimilarMoviesCubit>(context).getSimilarMovies(
+                  id: moviesId!,
+                );
+              }
+            },
+            // child: Container(
+            //   height: 166,
+            //   color: Colors.grey,
+            //   child: CachedNetworkImage(
+            //     imageUrl: movieImage ?? Constants.errorNetworkImage,
+            //     fit: BoxFit.fill,
+            //     errorWidget: (context, url, error) {
+            //       return const Icon(
+            //         Icons.error,
+            //       );
+            //     },
+            //     placeholder: (context, url) {
+            //       return const CircularProgressIndicator();
+            //     },
+            //     imageBuilder: (context, imageProvider) {
+            //       return Container(
+            //         decoration: BoxDecoration(
+            //           image: DecorationImage(
+            //               image: NetworkImage(
+            //                 movieImage!,
+            //               ),
+            //               fit: BoxFit.fill),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
+            child: Image.network(
+              movieImage ?? Constants.errorNetworkImage,
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
-        child: const UnSelectedBookmark(),
+          const Positioned(
+            bottom: 128,
+            left: -4,
+            child: UnSelectedBookmark(),
+          ),
+        ],
       ),
     );
   }

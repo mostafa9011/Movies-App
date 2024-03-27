@@ -23,4 +23,6 @@ class Constants {
       'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200';
   static String popularUrl =
       'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+  static String errorNetworkImage =
+      'https://static.vecteezy.com/system/resources/previews/016/089/981/original/website-error-black-glyph-icon-webpage-broken-network-connection-failed-server-issue-page-loading-problem-silhouette-symbol-on-white-space-solid-pictogram-isolated-illustration-vector.jpg';
 }

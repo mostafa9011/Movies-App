@@ -1,9 +1,9 @@
 class MovieModel {
   final int id;
-  final String backdropImage;
+  final String? backdropImage;
   final String title;
   final String overview;
-  final String posterImage;
+  final String? posterImage;
   final String releaseDate;
   final double voteAverage;
   List<String>? genresList;

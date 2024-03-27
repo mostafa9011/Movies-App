@@ -25,7 +25,7 @@ class CoveredMovie extends StatelessWidget {
                         'https://images-cdn.ubuy.co.in/6352289f38bb253c44612d53-interstellar-movie-poster-24-x-36-inches.jpg',
                       )
                     : NetworkImage(
-                        movie!.backdropImage,
+                        movie!.backdropImage ?? Constants.errorNetworkImage,
                       ),
                 fit: BoxFit.fitWidth,
               ),
