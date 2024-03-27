@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import '../../../../core/config/constants.dart';
 
 class MovieImage extends StatelessWidget {
-  const MovieImage({super.key});
+  const MovieImage({
+    super.key,
+    required this.networkImage,
+  });
+  final String networkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +17,8 @@ class MovieImage extends StatelessWidget {
         color: Colors.grey,
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Image.asset(
-        'assets/images/Image1.png',
+      child: Image.network(
+        networkImage,
         fit: BoxFit.fill,
       ),
     );

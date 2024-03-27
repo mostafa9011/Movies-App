@@ -38,33 +38,6 @@ class PosterMovie extends StatelessWidget {
                 );
               }
             },
-            // child: Container(
-            //   height: 166,
-            //   color: Colors.grey,
-            //   child: CachedNetworkImage(
-            //     imageUrl: movieImage ?? Constants.errorNetworkImage,
-            //     fit: BoxFit.fill,
-            //     errorWidget: (context, url, error) {
-            //       return const Icon(
-            //         Icons.error,
-            //       );
-            //     },
-            //     placeholder: (context, url) {
-            //       return const CircularProgressIndicator();
-            //     },
-            //     imageBuilder: (context, imageProvider) {
-            //       return Container(
-            //         decoration: BoxDecoration(
-            //           image: DecorationImage(
-            //               image: NetworkImage(
-            //                 movieImage!,
-            //               ),
-            //               fit: BoxFit.fill),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // ),
             child: Image.network(
               movieImage ?? Constants.errorNetworkImage,
               fit: BoxFit.fill,

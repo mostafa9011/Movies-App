@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/features/search_view/views/search_movies_builder.dart';
 import 'package:movies_app/features/search_view/widgets/custom_text_feild_search.dart';
-import '../widgets/local_movies.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -11,8 +11,7 @@ class SearchView extends StatelessWidget {
       child: Column(
         children: [
           CustomSearch(),
-          LocalMovies(),
-          // MovieDesign(),
+          SearchMoviesBuilder(),
         ],
       ),
     );

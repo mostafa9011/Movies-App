@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/config/models/movie_model.dart';
 import '../../../../core/config/constants.dart';
 
 class MovieDescription extends StatelessWidget {
-  const MovieDescription({super.key});
+  const MovieDescription({
+    super.key,
+    required this.movie,
+  });
+  final MovieModel movie;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +18,7 @@ class MovieDescription extends StatelessWidget {
           margin: const EdgeInsets.only(left: 10, bottom: 5),
           width: Constants.mediaQuery.width * 0.5,
           child: Text(
-            'Alita Battle Angel',
+            movie.title,
             style: Constants.theme.textTheme.bodyMedium!.copyWith(
               color: Colors.white,
             ),
@@ -23,7 +28,7 @@ class MovieDescription extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(left: 10, bottom: 5),
           child: Text(
-            '2019',
+            movie.releaseDate,
             style: Constants.theme.textTheme.bodyMedium,
           ),
         ),
@@ -31,7 +36,7 @@ class MovieDescription extends StatelessWidget {
           margin: const EdgeInsets.only(left: 10, bottom: 5),
           width: Constants.mediaQuery.width * 0.5,
           child: Text(
-            'Rosa Salazar, Christoph Waltz',
+            movie.overview,
             style: Constants.theme.textTheme.bodyMedium,
             overflow: TextOverflow.ellipsis,
           ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/cubits/search_movies_cubit/search_cubit.dart';
 
 class CustomSearch extends StatelessWidget {
   const CustomSearch({super.key});
@@ -8,6 +10,11 @@ class CustomSearch extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: TextField(
+        onChanged: (value) {
+          BlocProvider.of<SearchMoviesCubit>(context).getSearchMovies(
+            query: value,
+          );
+        },
         cursorColor: const Color(0XFF48CFAD),
         cursorWidth: 1,
         decoration: InputDecoration(

@@ -7,16 +7,32 @@ class ApiService {
   final dio = Dio();
 
   Future<List<MovieModel>> getMoviesService({
-     String? url,
+    String? url,
     int? id,
+    String? query,
   }) async {
     try {
-      var response = await dio.get(
-        id == null
-            ? '$url&${Constants.apiKey}'
-            : 'https://api.themoviedb.org/3/movie/$id/similar?language=en-US&page=1&${Constants.apiKey}',
-      );
-      var json = response.data;
+      Response response;
+      Map<String, dynamic> json;
+      if (id == null && query == null) {
+        response = await dio.get(
+          '$url&${Constants.apiKey}',
+        );
+      } else if (query == null) {
+        response = await dio.get(
+          'https://api.themoviedb.org/3/movie/$id/similar?language=en-US&page=1&${Constants.apiKey}',
+        );
+      } else {
+        response = await dio.get(
+          'https://api.themoviedb.org/3/search/movie?query=$query&include_adult=false&language=en-US&page=1&${Constants.apiKey}',
+        );
+      }
+      // response = await dio.get(
+      //   id == null && query == null
+      //       ? '$url&${Constants.apiKey}'
+      //       : 'https://api.themoviedb.org/3/movie/$id/similar?language=en-US&page=1&${Constants.apiKey}',
+      // );
+      json = response.data;
       List<dynamic> results = json['results'];
       List<MovieModel> moviesList = [];
       for (var element in results) {
