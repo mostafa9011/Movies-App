@@ -25,9 +25,12 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 25),
-          Text(
-            title,
-            style: Constants.theme.textTheme.bodyLarge,
+          Expanded(
+            child: Text(
+              title,
+              style: Constants.theme.textTheme.bodyLarge,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/main.dart';
 
+import '../../features/browse_view/widgets/category_model.dart';
 import '../cubits/home_layout_cubit/home_layout_cubit.dart';
 
 class Constants {
@@ -25,4 +26,84 @@ class Constants {
       'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
   static String errorNetworkImage =
       'https://static.vecteezy.com/system/resources/previews/016/089/981/original/website-error-black-glyph-icon-webpage-broken-network-connection-failed-server-issue-page-loading-problem-silhouette-symbol-on-white-space-solid-pictogram-isolated-illustration-vector.jpg';
+  
+  
+  static List<CategoryModel> categoryList = [
+    CategoryModel(
+      title: 'Action',
+      image: 'assets/images/action.jpg',
+    ),
+    CategoryModel(
+      title: 'Adventure',
+      image: 'assets/images/adventure.jpg',
+    ),
+    CategoryModel(
+      title: 'Animation',
+      image: 'assets/images/animation.jpg',
+    ),
+    CategoryModel(
+      title: 'Comedy',
+      image: 'assets/images/comedy.jpg',
+    ),
+    CategoryModel(
+      title: 'Crime',
+      image: 'assets/images/crime.jpg',
+    ),
+    CategoryModel(
+      title: 'Drama',
+      image: 'assets/images/drama.jpg',
+    ),
+    CategoryModel(
+      title: 'Documentary',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Family',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Fantasy',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'History',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Horror',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Music',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Mystery',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Romance',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Science Fiction',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'TV Movie',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Thriller',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'War',
+      image: 'assets/images/general.jpg',
+    ),
+    CategoryModel(
+      title: 'Western',
+      image: 'assets/images/general.jpg',
+    ),
+  ];
 }
