@@ -5,6 +5,7 @@ import 'package:movies_app/core/config/views_route_name.dart';
 import 'package:movies_app/core/cubits/details_movies_cubit/details_movie_cubit.dart';
 import 'package:movies_app/core/cubits/similar_movies_cubit/similar_movies_cubit.dart';
 import 'package:movies_app/core/widgets/unfavorite_bookmark.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class PosterMovie extends StatelessWidget {
   const PosterMovie({super.key, this.movieImage, this.moviesId});
@@ -14,11 +15,13 @@ class PosterMovie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.zero,
       alignment: Alignment.topLeft,
       height: 166,
       width: Constants.mediaQuery.width * 0.30,
-      color: Colors.grey,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        borderRadius: BorderRadius.circular(6),
+      ),
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -38,9 +41,25 @@ class PosterMovie extends StatelessWidget {
                 );
               }
             },
-            child: Image.network(
-              movieImage ?? Constants.errorNetworkImage,
-              fit: BoxFit.fill,
+            child: Center(
+              child: CachedNetworkImage(
+                imageUrl: movieImage ?? '',
+                placeholder: (context, url) =>
+                    const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(
+                  Icons.error,
+                ),
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(6),
+                    image: DecorationImage(
+                      image: NetworkImage(movieImage ?? ''),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
           const Positioned(

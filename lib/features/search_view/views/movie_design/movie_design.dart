@@ -39,7 +39,10 @@ class MovieDesign extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(left: 16, bottom: 6),
+              margin: const EdgeInsets.only(
+                left: 16,
+                bottom: 6,
+              ),
               child: Row(
                 children: [
                   MovieImage(

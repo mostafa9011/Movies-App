@@ -14,7 +14,7 @@ class CategoryGridView extends StatelessWidget {
         itemCount: categoryList.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Number of columns
-          crossAxisSpacing: 16, // Spacing between columns
+          crossAxisSpacing: 20, // Spacing between columns
           mainAxisSpacing: 16, // Spacing between rows
           childAspectRatio: 1.5,
         ),
