@@ -22,6 +22,7 @@ class CategoryGridView extends StatelessWidget {
           return Category(
             title: categoryList[index].title,
             image: categoryList[index].image,
+            genresId: categoryList[index].genresId,
           );
         },
       ),

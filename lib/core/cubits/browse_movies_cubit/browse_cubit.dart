@@ -4,16 +4,15 @@ import 'package:movies_app/core/config/services/api_service.dart';
 import 'browse_movies_state.dart';
 
 class BrowseMoviesCubit extends Cubit<BrowseMoviesStates> {
-  BrowseMoviesCubit() : super(BrowseInitial());
+  BrowseMoviesCubit() : super(BrowseLoadingState());
   List<MovieModel> moviesList = [];
 
-  getSearchMovies({
-    required String query,
+  getBrowseMovies({
+    required String genresId,
   }) async {
-    emit(BrowseLoadingState());
     try {
       moviesList = await ApiService().getMoviesService(
-        query: query,
+        genresId: genresId,
       );
 
       emit(

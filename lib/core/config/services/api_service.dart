@@ -10,28 +10,29 @@ class ApiService {
     String? url,
     int? id,
     String? query,
+    String? genresId,
   }) async {
     try {
       Response response;
       Map<String, dynamic> json;
-      if (id == null && query == null) {
+      if (url != null) {
         response = await dio.get(
           '$url&${Constants.apiKey}',
         );
-      } else if (query == null) {
+      } else if (id != null) {
         response = await dio.get(
           'https://api.themoviedb.org/3/movie/$id/similar?language=en-US&page=1&${Constants.apiKey}',
         );
-      } else {
+      } else if (query != null) {
         response = await dio.get(
           'https://api.themoviedb.org/3/search/movie?query=$query&include_adult=false&language=en-US&page=1&${Constants.apiKey}',
         );
+      } else {
+        response = await dio.get(
+          'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=$genresId&${Constants.apiKey}',
+        );
       }
-      // response = await dio.get(
-      //   id == null && query == null
-      //       ? '$url&${Constants.apiKey}'
-      //       : 'https://api.themoviedb.org/3/movie/$id/similar?language=en-US&page=1&${Constants.apiKey}',
-      // );
+
       json = response.data;
       List<dynamic> results = json['results'];
       List<MovieModel> moviesList = [];

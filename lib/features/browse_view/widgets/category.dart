@@ -1,5 +1,7 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/config/views_route_name.dart';
+import 'package:movies_app/core/cubits/browse_movies_cubit/browse_cubit.dart';
 import '../../../core/config/constants.dart';
 
 class Category extends StatelessWidget {
@@ -7,15 +9,24 @@ class Category extends StatelessWidget {
     super.key,
     required this.title,
     required this.image,
+    required this.genresId,
   });
   final String title;
   final String image;
+  final String genresId;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        log(title);
+        BlocProvider.of<BrowseMoviesCubit>(context).getBrowseMovies(
+          genresId: genresId,
+        );
+        Navigator.pushNamed(
+          context,
+          ViewsRouteName.browseMoviesView,
+          arguments: title,
+        );
       },
       child: Container(
         decoration: BoxDecoration(

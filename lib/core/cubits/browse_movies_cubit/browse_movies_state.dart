@@ -2,8 +2,6 @@ import '../../config/models/movie_model.dart';
 
 sealed class BrowseMoviesStates {}
 
-final class BrowseInitial extends BrowseMoviesStates {}
-
 final class BrowseLoadingState extends BrowseMoviesStates {}
 
 final class BrowseSuccessState extends BrowseMoviesStates {
