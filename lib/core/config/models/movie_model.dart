@@ -7,6 +7,7 @@ class MovieModel {
   final String releaseDate;
   final double voteAverage;
   List<String>? genresList;
+  String? cloudId;
 
   MovieModel({
     this.genresList,
@@ -17,6 +18,7 @@ class MovieModel {
     required this.posterImage,
     required this.releaseDate,
     required this.voteAverage,
+    this.cloudId,
   });
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
@@ -27,6 +29,20 @@ class MovieModel {
       posterImage: 'https://image.tmdb.org/t/p/w500${json['poster_path']}',
       releaseDate: json['release_date'],
       voteAverage: json['vote_average'],
+      cloudId: json['cloudId'],
     );
+  }
+
+  Map<String, dynamic> toFirestore() {
+    return {
+      'title': title,
+      'id': id,
+      'overview': overview,
+      'backdropImage': backdropImage,
+      'posterImage': posterImage,
+      'releaseDate': releaseDate,
+      'voteAverage': voteAverage,
+      'cloudId': cloudId,
+    };
   }
 }
