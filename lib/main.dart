@@ -1,11 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/app_theme_manager.dart';
 import 'package:movies_app/core/config/views_route_name.dart';
 import 'package:movies_app/core/config/routes.dart';
+import 'package:movies_app/firebase_options.dart';
 import 'core/widgets/multi_bloc_provider.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MoviesApp());
 }
 
