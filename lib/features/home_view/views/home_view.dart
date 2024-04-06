@@ -6,7 +6,6 @@ import 'package:movies_app/features/home_view/widgets/popular_movies_builder.dar
 import 'package:movies_app/features/home_view/widgets/recomended_movies_list.dart';
 import '../../../core/config/constants.dart';
 import '../../../core/config/models/movie_model.dart';
-import '../../../core/config/services/cloud_firestore.dart';
 import '../../../core/cubits/favorite_movies_cubit/favorite_movies_cubit.dart';
 
 class HomeView extends StatelessWidget {
@@ -14,38 +13,80 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return const Column(
+    //         children: [
+    //           PopularMoviesBuilder(),
+    //           Spacer(flex: 1),
+    //           NewReleases(),
+    //           Spacer(flex: 1),
+    //           RecomendedMoviesList(
+    //             title: 'Recomended',
+    //             isSimilar: false,
+    //           ),
+    //           Spacer(flex: 1),
+    //         ],
+    //       );
     var vm = BlocProvider.of<FavoriteMoviesCubit>(context);
-
     return StreamBuilder<QuerySnapshot<MovieModel>>(
-      stream: FireStoreService().getStreamFavMovies(),
+      stream: vm.getStreamFavMovies(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(
-              backgroundColor: Constants.goldenColor,
-              strokeWidth: 1,
-            ),
-          );
-        } else {
-          List<MovieModel> favoriteMoviesList =
-              snapshot.data?.docs.map((e) => e.data()).toList() ?? [];
+        return BlocBuilder<FavoriteMoviesCubit, FavoriteMoviesState>(
+          builder: (context, state) {
+            if (state is FavoriteMoviesLoading) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Constants.goldenColor,
+                  strokeWidth: 1,
+                ),
+              );
+            } else {
+              List<MovieModel> favoriteMoviesList =
+                  snapshot.data?.docs.map((e) => e.data()).toList() ?? [];
 
-          vm.getFavoriteMoviesList(favoriteMoviesList);
+              vm.getFavoriteMoviesList(favoriteMoviesList);
+              return const Column(
+                children: [
+                  PopularMoviesBuilder(),
+                  Spacer(flex: 1),
+                  NewReleases(),
+                  Spacer(flex: 1),
+                  RecomendedMoviesList(
+                    title: 'Recomended',
+                    isSimilar: false,
+                  ),
+                  Spacer(flex: 1),
+                ],
+              );
+            }
+          },
+        );
+        // if (snapshot.connectionState == ConnectionState.waiting) {
+        //   return const Center(
+        //     child: CircularProgressIndicator(
+        //       backgroundColor: Constants.goldenColor,
+        //       strokeWidth: 1,
+        //     ),
+        //   );
+        // } else {
+        // List<MovieModel> favoriteMoviesList =
+        //     snapshot.data?.docs.map((e) => e.data()).toList() ?? [];
 
-          return const Column(
-            children: [
-              PopularMoviesBuilder(),
-              Spacer(flex: 1),
-              NewReleases(),
-              Spacer(flex: 1),
-              RecomendedMoviesList(
-                title: 'Recomended',
-                isSimilar: false,
-              ),
-              Spacer(flex: 1),
-            ],
-          );
-        }
+        // vm.getFavoriteMoviesList(favoriteMoviesList);
+
+        //   return const Column(
+        //     children: [
+        //       PopularMoviesBuilder(),
+        //       Spacer(flex: 1),
+        //       NewReleases(),
+        //       Spacer(flex: 1),
+        //       RecomendedMoviesList(
+        //         title: 'Recomended',
+        //         isSimilar: false,
+        //       ),
+        //       Spacer(flex: 1),
+        //     ],
+        //   );
+        // }
       },
     );
   }

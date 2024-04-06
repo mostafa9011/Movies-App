@@ -18,15 +18,16 @@ class MovieDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          ViewsRouteName.detailsView,
-        );
         BlocProvider.of<DetailsMovieCubit>(context).getDetailsMovie(
           id: movie.id!,
         );
         BlocProvider.of<SimilarMoviesCubit>(context).getSimilarMovies(
           id: movie.id!,
+        );
+        Navigator.pushNamed(
+          context,
+          ViewsRouteName.detailsView,
+          arguments: movie,
         );
       },
       child: Container(

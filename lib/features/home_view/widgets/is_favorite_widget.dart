@@ -37,21 +37,21 @@ class _IsFavoriteWidgetState extends State<IsFavoriteWidget> {
           ? const FavoriteBookmark()
           : const UnFavoriteBookmark(),
       onTap: () async {
-        log('is fav? ${widget.movie.isFavorite}');
         isFavorite == true
             ? {
                 log('tapped! on favorite'),
                 await vm.deletMovieFromFav(cloudId: widget.movie.cloudId!),
                 log('delete ${widget.movie.title} from favorite'),
-                vm.watchedListMovies(),
+                // vm.watchedListMovies(),
               }
             : {
                 log('tapped! on unfavorite'),
                 await FireStoreService().addMovieToFavorite(widget.movie),
+                // log(widget.movie.cloudId!),
                 log('add ${widget.movie.title} to favorite'),
-                vm.watchedListMovies(),
+                // vm.watchedListMovies(),
               };
-        log(vm.favoriteMoviesList.length.toString());
+
         setState(() {
           isFavorite = !isFavorite;
         });

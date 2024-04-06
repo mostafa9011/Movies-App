@@ -8,11 +8,9 @@ class MovieModel {
   final double voteAverage;
   List<String>? genresList;
   String? cloudId;
-  bool? isFavorite = false;
 
   MovieModel({
     this.genresList,
-    this.isFavorite,
     required this.id,
     required this.backdropImage,
     required this.title,
@@ -32,7 +30,6 @@ class MovieModel {
       releaseDate: json['release_date'],
       voteAverage: json['vote_average'],
       cloudId: json['cloudId'],
-      isFavorite: json['isFavorite'] ?? false,
     );
   }
 
@@ -46,7 +43,6 @@ class MovieModel {
       'release_date': releaseDate,
       'vote_average': voteAverage,
       'cloudId': cloudId,
-      'isFavorite': isFavorite,
     };
   }
 }
