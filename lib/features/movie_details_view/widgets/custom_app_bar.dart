@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/config/constants.dart';
 import 'package:movies_app/core/config/views_route_name.dart';
+import 'package:movies_app/core/cubits/favorite_movies_cubit/favorite_movies_cubit.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, required this.title});
@@ -15,10 +17,14 @@ class CustomAppBar extends StatelessWidget {
         children: [
           const SizedBox(width: 10),
           IconButton(
-            onPressed: () => Navigator.pushReplacementNamed(
-              context,
-              ViewsRouteName.homeLayoutView,
-            ),
+            onPressed: () {
+              BlocProvider.of<FavoriteMoviesCubit>(context)
+                  .getStreamFavMovies();
+              Navigator.pushReplacementNamed(
+                context,
+                ViewsRouteName.homeLayoutView,
+              );
+            },
             icon: const Icon(
               Icons.arrow_back,
               color: Colors.white,

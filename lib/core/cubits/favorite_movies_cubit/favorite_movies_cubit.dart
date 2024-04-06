@@ -9,7 +9,7 @@ class FavoriteMoviesCubit extends Cubit<FavoriteMoviesState> {
   List<MovieModel> favoriteMoviesList = [];
   List<int> favoriteMoviesIdsList = [];
   List<String> favoriteMoviesCloudIdsList = [];
-  Stream<QuerySnapshot<MovieModel>> get streamFavoriteMovies =>
+  Stream<QuerySnapshot<MovieModel>> streamFavoriteMovies =
       FireStoreService().getStreamFavMovies();
 
   getFavoriteMoviesList(List<MovieModel> moviesList) {
@@ -24,9 +24,15 @@ class FavoriteMoviesCubit extends Cubit<FavoriteMoviesState> {
     emit(FavoriteMoviesSuccess());
   }
 
-  getStreamFavoriteMovies() {
-    emit(FavoriteMoviesLoading());
+  getFavoriteMovies() {
+    // emit(FavoriteMoviesLoading());
     streamFavoriteMovies;
+    emit(FavoriteMoviesSuccess());
+  }
+
+  getStreamFavMovies() {
+    emit(FavoriteMoviesLoading());
+    FireStoreService().getStreamFavMovies();
     emit(FavoriteMoviesSuccess());
   }
 
