@@ -1,12 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/config/app_theme_manager.dart';
 import 'package:movies_app/core/config/views_route_name.dart';
 import 'package:movies_app/core/config/routes.dart';
-import 'package:movies_app/core/cubits/home_layout_cubit/home_layout_cubit.dart';
+import 'package:movies_app/firebase_options.dart';
+import 'core/widgets/multi_bloc_provider.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MoviesApp());
 }
 
@@ -15,8 +20,7 @@ class MoviesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeLayoutCubit(),
+    return MultiBloc(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppThemeManager.lightTheme,
