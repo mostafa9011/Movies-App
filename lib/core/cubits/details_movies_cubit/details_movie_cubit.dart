@@ -13,7 +13,6 @@ class DetailsMovieCubit extends Cubit<DetailsMovieStates> {
       movie = await ApiService().getDetailsMoviesService(
         id: id,
       );
-
       emit(
         SuccessMovieState(
           movie: movie,

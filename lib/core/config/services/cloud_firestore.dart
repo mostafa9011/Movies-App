@@ -11,15 +11,23 @@ class FireStoreService {
         );
   }
 
-  Future<void> addMovie(MovieModel movie) {
+  Future<void> addMovieToFavorite(MovieModel movie) {
     var collectionRef = getCollectionRef();
     var docRef = collectionRef.doc();
     movie.cloudId = docRef.id;
+    movie.isFavorite = true;
     return docRef.set(movie);
   }
 
-  Future<void> deleteMovie(String cloudId) {
+  Future<void> deleteMovieFromFavorite(String cloudId) {
     var collectionRef = getCollectionRef();
     return collectionRef.doc(cloudId).delete();
+  }
+
+  Stream<QuerySnapshot<MovieModel>> getStreamFavMovies() {
+    var collectionRef = getCollectionRef();
+    return collectionRef.snapshots(
+      includeMetadataChanges: true,
+    );
   }
 }

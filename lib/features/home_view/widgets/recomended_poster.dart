@@ -21,8 +21,8 @@ class RecomendedPoster extends StatelessWidget {
         children: [
           Expanded(
             child: PosterMovie(
-              movieImage: movie.posterImage,
-              moviesId: movie.id,
+              movie: movie,
+              id: movie.id!,
             ),
           ),
           Row(

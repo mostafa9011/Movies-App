@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/cubits/browse_movies_cubit/browse_cubit.dart';
+import 'package:movies_app/core/cubits/favorite_movies_cubit/favorite_movies_cubit.dart';
 
 import '../cubits/details_movies_cubit/details_movie_cubit.dart';
 import '../cubits/home_layout_cubit/home_layout_cubit.dart';
@@ -44,6 +45,9 @@ class MultiBloc extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => BrowseMoviesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FavoriteMoviesCubit(),
         ),
       ],
       child: child,

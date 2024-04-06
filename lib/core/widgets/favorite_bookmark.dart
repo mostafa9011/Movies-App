@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/constants.dart';
 
@@ -24,4 +23,3 @@ class FavoriteBookmark extends StatelessWidget {
     );
   }
 }
-

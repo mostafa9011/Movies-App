@@ -21,13 +21,12 @@ class MovieDesign extends StatelessWidget {
         Navigator.pushNamed(
           context,
           ViewsRouteName.detailsView,
-          arguments: movie.id,
         );
         BlocProvider.of<DetailsMovieCubit>(context).getDetailsMovie(
-          id: movie.id,
+          id: movie.id!,
         );
         BlocProvider.of<SimilarMoviesCubit>(context).getSimilarMovies(
-          id: movie.id,
+          id: movie.id!,
         );
       },
       child: Container(

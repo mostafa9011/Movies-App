@@ -20,7 +20,9 @@ class BrowseVeiw extends StatelessWidget {
             const SizedBox(height: 24),
             Text(
               'Browse Category',
-              style: Constants.theme.textTheme.titleLarge,
+              style: Constants.theme.textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const SizedBox(height: 16),
             const CategoryGridView(),

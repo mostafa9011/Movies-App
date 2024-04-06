@@ -6,7 +6,6 @@ import 'package:movies_app/features/home_view/widgets/covered_movie.dart';
 import 'package:movies_app/features/home_view/widgets/recomended_movies_list.dart';
 import 'package:movies_app/features/movie_details_view/widgets/custom_app_bar.dart';
 import 'package:movies_app/features/movie_details_view/widgets/movie_details.dart';
-
 import '../../../core/config/constants.dart';
 
 class MovieDetailsView extends StatelessWidget {
@@ -14,6 +13,7 @@ class MovieDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // MovieModel movie = ModalRoute.of(context)!.settings.arguments as MovieModel;
     return Scaffold(
       body: SafeArea(
         child: BlocBuilder<DetailsMovieCubit, DetailsMovieStates>(

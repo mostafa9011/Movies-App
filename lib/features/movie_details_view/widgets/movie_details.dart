@@ -5,8 +5,13 @@ import '../../home_view/widgets/poster_movie.dart';
 import 'custom_button.dart';
 
 class MovieDetails extends StatelessWidget {
-  const MovieDetails({super.key, required this.movie});
+  const MovieDetails({
+    super.key,
+    required this.movie,
+    this.cloudId,
+  });
   final MovieModel movie;
+  final String? cloudId;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class MovieDetails extends StatelessWidget {
       child: Row(
         children: [
           PosterMovie(
-            movieImage: movie.posterImage,
+            movie: movie,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16),
