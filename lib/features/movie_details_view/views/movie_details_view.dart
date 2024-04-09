@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/cubits/details_movies_cubit/details_movie_cubit.dart';
@@ -7,13 +9,15 @@ import 'package:movies_app/features/home_view/widgets/recomended_movies_list.dar
 import 'package:movies_app/features/movie_details_view/widgets/custom_app_bar.dart';
 import 'package:movies_app/features/movie_details_view/widgets/movie_details.dart';
 import '../../../core/config/constants.dart';
+import '../../../core/config/models/movie_model.dart';
 
 class MovieDetailsView extends StatelessWidget {
   const MovieDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // MovieModel movie = ModalRoute.of(context)!.settings.arguments as MovieModel;
+    MovieModel movie = ModalRoute.of(context)!.settings.arguments as MovieModel;
+    var vm = BlocProvider.of<DetailsMovieCubit>(context);
     return Scaffold(
       body: SafeArea(
         child: BlocBuilder<DetailsMovieCubit, DetailsMovieStates>(
@@ -26,19 +30,21 @@ class MovieDetailsView extends StatelessWidget {
                 ),
               );
             } else if (state is SuccessMovieState) {
+              vm.movieDetails.cloudId = movie.cloudId;
+              log('${vm.movieDetails.cloudId} success state');
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomAppBar(
-                    title: state.movie.title,
+                    title: vm.movieDetails.title,
                   ),
                   const Spacer(flex: 1),
                   CoveredMovie(
                     textPadding: 16,
-                    movie: state.movie,
+                    movie: vm.movieDetails,
                   ),
                   MovieDetails(
-                    movie: state.movie,
+                    movie: vm.movieDetails,
                   ),
                   const Spacer(flex: 1),
                   const RecomendedMoviesList(

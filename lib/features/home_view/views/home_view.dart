@@ -6,7 +6,6 @@ import 'package:movies_app/features/home_view/widgets/popular_movies_builder.dar
 import 'package:movies_app/features/home_view/widgets/recomended_movies_list.dart';
 import '../../../core/config/constants.dart';
 import '../../../core/config/models/movie_model.dart';
-import '../../../core/config/services/cloud_firestore.dart';
 import '../../../core/cubits/favorite_movies_cubit/favorite_movies_cubit.dart';
 
 class HomeView extends StatelessWidget {
@@ -17,7 +16,7 @@ class HomeView extends StatelessWidget {
     var vm = BlocProvider.of<FavoriteMoviesCubit>(context);
 
     return StreamBuilder<QuerySnapshot<MovieModel>>(
-      stream: FireStoreService().getStreamFavMovies(),
+      stream: vm.getStreamFavoriteMovies(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
@@ -29,7 +28,6 @@ class HomeView extends StatelessWidget {
         } else {
           List<MovieModel> favoriteMoviesList =
               snapshot.data?.docs.map((e) => e.data()).toList() ?? [];
-
           vm.getFavoriteMoviesList(favoriteMoviesList);
 
           return const Column(

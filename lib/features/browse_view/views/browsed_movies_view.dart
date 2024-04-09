@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/features/browse_view/widgets/browse_movies_builder.dart';
 import 'package:movies_app/features/movie_details_view/widgets/custom_app_bar.dart';
 
-class BrowseMoviesView extends StatelessWidget {
-  const BrowseMoviesView({super.key});
+class BrowsedMoviesView extends StatelessWidget {
+  const BrowsedMoviesView({super.key});
 
   @override
   Widget build(BuildContext context) {

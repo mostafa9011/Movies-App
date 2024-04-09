@@ -15,7 +15,6 @@ class FireStoreService {
     var collectionRef = getCollectionRef();
     var docRef = collectionRef.doc();
     movie.cloudId = docRef.id;
-    movie.isFavorite = true;
     return docRef.set(movie);
   }
 
@@ -26,8 +25,6 @@ class FireStoreService {
 
   Stream<QuerySnapshot<MovieModel>> getStreamFavMovies() {
     var collectionRef = getCollectionRef();
-    return collectionRef.snapshots(
-      includeMetadataChanges: true,
-    );
+    return collectionRef.snapshots();
   }
 }

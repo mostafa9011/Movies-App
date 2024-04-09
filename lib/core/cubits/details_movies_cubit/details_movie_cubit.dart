@@ -6,17 +6,15 @@ import 'details_movie_state.dart';
 
 class DetailsMovieCubit extends Cubit<DetailsMovieStates> {
   DetailsMovieCubit() : super(InitialMovieState());
-  late MovieModel movie;
+  late MovieModel movieDetails;
 
   getDetailsMovie({required int id}) async {
     try {
-      movie = await ApiService().getDetailsMoviesService(
+      movieDetails = await ApiService().getDetailsMoviesService(
         id: id,
       );
       emit(
-        SuccessMovieState(
-          movie: movie,
-        ),
+        SuccessMovieState(),
       );
     } catch (e) {
       emit(

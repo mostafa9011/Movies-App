@@ -20,26 +20,22 @@ class WatchedListView extends StatelessWidget {
               left: 22,
             ),
             child: Text(
-              'Browse Category',
+              'Watched List',
               style: Constants.theme.textTheme.titleLarge!.copyWith(
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
           const SizedBox(height: 16),
-          BlocBuilder<FavoriteMoviesCubit, FavoriteMoviesState>(
-            builder: (context, state) {
-              return Expanded(
-                child: ListView.builder(
-                  itemCount: vm.favoriteMoviesList.length,
-                  itemBuilder: (context, index) {
-                    return MovieDesign(
-                      movie: vm.favoriteMoviesList[index],
-                    );
-                  },
-                ),
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: vm.favoriteMoviesList.length,
+              itemBuilder: (context, index) {
+                return MovieDesign(
+                  movie: vm.favoriteMoviesList[index],
+                );
+              },
+            ),
           ),
         ],
       ),

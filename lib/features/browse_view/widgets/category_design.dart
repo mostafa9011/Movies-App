@@ -4,8 +4,8 @@ import 'package:movies_app/core/config/views_route_name.dart';
 import 'package:movies_app/core/cubits/browse_movies_cubit/browse_cubit.dart';
 import '../../../core/config/constants.dart';
 
-class Category extends StatelessWidget {
-  const Category({
+class CategoryDesign extends StatelessWidget {
+  const CategoryDesign({
     super.key,
     required this.title,
     required this.image,
