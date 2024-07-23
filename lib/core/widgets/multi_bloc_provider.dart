@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/core/cubits/browse_movies_cubit/browse_cubit.dart';
-import 'package:movies_app/core/cubits/favorite_movies_cubit/favorite_movies_cubit.dart';
-
-import '../cubits/details_movies_cubit/details_movie_cubit.dart';
-import '../cubits/home_layout_cubit/home_layout_cubit.dart';
-import '../cubits/new_releases_movies_cubit/new_releases_movies_cubit.dart';
-import '../cubits/popular_movies_cubit/popular_movies_cubit.dart';
-import '../cubits/recommended_movies_cubit/recommended_movies_cubit.dart';
-import '../cubits/search_movies_cubit/search_cubit.dart';
-import '../cubits/similar_movies_cubit/similar_movies_cubit.dart';
+import 'package:movies_app/features/browse/manager/browse_cubit.dart';
+import 'package:movies_app/features/watched_list/manager/favorite_movies_cubit.dart';
+import '../../features/movie_details/manager/details_movies_cubit/details_movie_cubit.dart';
+import '../../features/layout/manager/home_layout_cubit.dart';
+import '../../features/home/manager/new_releases_movies_cubit/new_releases_movies_cubit.dart';
+import '../../features/home/manager/popular_movies_cubit/popular_movies_cubit.dart';
+import '../../features/home/manager/recommended_movies_cubit/recommended_movies_cubit.dart';
+import '../../features/search/manager/search_cubit.dart';
+import '../../features/movie_details/manager/similar_movies_cubit/similar_movies_cubit.dart';
 
 class MultiBloc extends StatelessWidget {
   const MultiBloc({

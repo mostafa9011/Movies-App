@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/main.dart';
 
-import '../../features/browse_view/widgets/category_model.dart';
-import '../cubits/home_layout_cubit/home_layout_cubit.dart';
+import '../../features/browse/views/widgets/category_model.dart';
+import '../../features/layout/manager/home_layout_cubit.dart';
 
 class Constants {
   static var mediaQuery =
