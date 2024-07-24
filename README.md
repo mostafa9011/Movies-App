@@ -44,12 +44,24 @@ To run this project locally, follow these steps:
 - **Bloc:** For state management.
 
 ## Screenshots
-![Home Screen](https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/1.jpg?raw=true)
-![Movie Details](https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/6.jpg?raw=true)
-![Favorites](https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/5.jpg?raw=true)
-![Browse](https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/2.jpg?raw=true)
-![Category](https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/3.jpg?raw=true)
-![Search](https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/4.jpg?raw=true)
+## Home Screen
+<img src="https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/1.jpg?raw=true" alt="" width="250"/>
+
+## Movie Details
+<img src="https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/6.jpg?raw=true" alt="" width="250"/>
+
+## Favorites
+<img src="https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/5.jpg?raw=true" alt="" width="250"/>
+
+## Browse
+<img src="https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/2.jpg?raw=true" alt="" width="250"/>
+
+## Category
+<img src="https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/3.jpg?raw=true" alt="" width="250"/>
+
+## Search
+<img src="https://github.com/mostafa9011/Movies-App/blob/main/assets/screeenshots/4.jpg?raw=true" alt="" width="250"/>
+
 
 ## Contributing
 Contributions are welcome! Please fork this repository and submit a pull request for any enhancements or bug fixes.
